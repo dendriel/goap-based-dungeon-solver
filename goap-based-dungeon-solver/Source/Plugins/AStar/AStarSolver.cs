@@ -104,7 +104,7 @@ namespace CSGameUtils
 		/// </summary>
 		/// <returns>An ordered list (first to last) of nodes to be visited to reach a solution;
 		/// if interrupted, returns an empty list.</returns>
-		public IAStarNode[] FindSolution()
+		public virtual IAStarNode[] FindSolution()
 		{
 			Stopwatch watch;
 			ElapsedTimeInMs = 0;

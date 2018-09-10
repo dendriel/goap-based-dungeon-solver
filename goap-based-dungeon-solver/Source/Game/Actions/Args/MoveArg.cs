@@ -10,5 +10,9 @@
             Direction = direction;
         }
 
+        public override string ToString()
+        {
+            return Direction.ToString();
+        }
     }
 }

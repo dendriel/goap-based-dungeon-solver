@@ -117,6 +117,16 @@ namespace Goap_Based_Dungeon_Solver.Source.Game
             return goapGraph;
         }
 
+        public int PosToNodeId(Point pos)
+        {
+            return spFinder.PosToNodeId(pos);
+        }
+
+        public Point NodeIdToPos(int id)
+        {
+            return spFinder.NodeIdToPos(id);
+        }
+
         private void DumpGraph(IEnumerable<SPNode> graph)
         {
             var graphText = string.Empty;
@@ -146,6 +156,11 @@ namespace Goap_Based_Dungeon_Solver.Source.Game
         public Point FindCharacterPos(MapElements character)
         {
             return BaseAction.FindCharacter(scenMan.LoadedScenario, character).Position;
+        }
+
+        public DynamicElement FindCharacter(MapElements character)
+        {
+            return BaseAction.FindCharacter(scenMan.LoadedScenario, character);
         }
 
         public Point FindObjetPos(MapElements obj)

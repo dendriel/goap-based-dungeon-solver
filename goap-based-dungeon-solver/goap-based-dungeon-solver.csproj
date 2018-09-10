@@ -109,7 +109,7 @@
     <Compile Include="Source\Game\Scenario\StaticElement.cs" />
     <Compile Include="Source\Game\ShortestPathFinder\GoapSpNode.cs" />
     <Compile Include="Source\Game\ShortestPathFinder\ShortestPathFinder.cs" />
-    <Compile Include="Source\Game\SolutionExecutor.cs" />
+    <Compile Include="Source\Planner\PlanCreator.cs" />
     <Compile Include="Source\Plugins\AStar\AStarSolver.cs" />
     <Compile Include="Source\Plugins\AStar\IAStarNode.cs" />
     <Compile Include="Source\Plugins\ShortestPath\ShortestPath.cs" />

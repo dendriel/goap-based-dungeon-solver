@@ -1,6 +1,7 @@
 ﻿using CSGameUtils;
 using Goap_Based_Dungeon_Solver.Source.Game;
 using Goap_Based_Dungeon_Solver.Source.Game.Api;
+using Goap_Based_Dungeon_Solver.Source.Planner;
 using Source.Solver;
 using Source.Solver.Node;
 using System;
@@ -19,7 +20,7 @@ namespace Goap_Based_Dungeon_Solver
 
         private Planner mazeSolver;
 
-        private SolutionExecutor solutionExecutor;
+        private PlanCreator planCreator;
 
         public Form1()
         {
@@ -31,12 +32,12 @@ namespace Goap_Based_Dungeon_Solver
             game = new GameManager(this);
             LoadFirstScenario();
 
-            solutionExecutor = new SolutionExecutor(game);
+            planCreator = new PlanCreator(game);
 
             mazeSolver = new Planner(new ClimbLadder(), game);
-            var solution = mazeSolver.FindSolution();
+            var solution = mazeSolver.FindSolutionAsActionType();
 
-            solutionExecutor.ExecuteSolution(solution);
+            planCreator.ExecuteSolution(solution);
         }
 
         private void LoadFirstScenario()

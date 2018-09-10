@@ -1,5 +1,6 @@
 ﻿using CSGameUtils;
 using Goap_Based_Dungeon_Solver.Source.Game;
+using Source.Solver.Node;
 using System.Collections.Generic;
 
 namespace Source.Solver
@@ -15,6 +16,26 @@ namespace Source.Solver
             this.game = game;
             ActionNode.SetGameManager(game);
             unresolvedConditions = new Queue<EffectType>();
+        }
+
+        public ActionType[] FindSolutionAsActionType()
+        {
+            var solution = base.FindSolution();
+
+            return IAStarNodeToActionType(solution);
+        }
+
+        private ActionType[] IAStarNodeToActionType(IAStarNode[] nodes)
+        {
+            var actions = new List<ActionType>();
+
+            foreach(var n in nodes)
+            {
+                var action = (n as ActionNode).Action;
+                actions.Add(action);
+            }
+
+            return actions.ToArray();
         }
 
         protected override void RefreshOpenList()

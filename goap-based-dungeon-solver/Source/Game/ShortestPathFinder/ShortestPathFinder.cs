@@ -61,9 +61,16 @@ namespace Goap_Based_Dungeon_Solver.Source.Game
             return graph;
         }
 
-        private int PosToNodeId(Point pos)
+        public int PosToNodeId(Point pos)
         {
             return (pos.Y * currScenarioWidth) + pos.X;
+        }
+
+        public Point NodeIdToPos(int id)
+        {
+            var y = id / currScenarioWidth;
+            var x = id % currScenarioWidth;
+            return new Point(x, y);
         }
 
         private SPNode CreateNode(int nodeId, Point pos)
